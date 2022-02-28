@@ -1,0 +1,9 @@
+<?php
+session_start();
+if(isset($_SESSION)){
+    unset($_SESSION['usuario']);
+    session_destroy();
+    header('location:Biblioteca/index.php');
+    exit();
+}
+?>
