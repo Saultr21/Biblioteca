@@ -1,0 +1,9 @@
+<?php $_shouldextend[1]=1; ?>
+<?php $this->startSection("header"); ?>
+ <h1>Administracion</h1>
+
+<?php $this->stopSection(); ?>
+<?php $this->startSection("contenido"); ?>
+ <p><a class="btn btn-primary text-center" href="../../../Biblioteca/index.php">Volver</a></p>
+<?php $this->stopSection(); ?>
+<?php if (isset($_shouldextend[1])) { echo $this->runChild("layaouts.admin"); } ?>

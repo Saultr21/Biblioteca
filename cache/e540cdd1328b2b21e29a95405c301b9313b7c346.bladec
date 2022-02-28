@@ -1,0 +1,33 @@
+<?php $_shouldextend[1]=1; ?>
+<?php /*Cabecera*/ ?>
+<?php $this->startSection("header"); ?>
+ <h1>Biblioteca</h1>
+ <?php if(empty($_SESSION['usuario']['id'])): ?>
+ <div class="container text-center mt-5">
+ <p>No estás logeado</p>
+ <p><a class="btn btn-primary text-center" href="../../../Biblioteca/login.php">Login</a></p>
+ </div>
+ <?php else: ?>
+ <p class="mt-3">Sesión iniciada con: <?php echo ucfirst($_SESSION['usuario']['first_name']); ?></p>
+ <p><a href="../usuario/index.php" class="btn btn-primary">Panel de usuario</a></p>
+ <p><a href="../../../logout.php" class="btn btn-primary">Cerrar sesión</a></p>
+
+ <?php endif; ?>
+<?php $this->stopSection(); ?>
+
+<?php /*Entradas*/ ?>
+<?php $this->startSection("content"); ?>
+ <?php $__currentLoopData = $libros; $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $libro): $loop = $this->incrementLoopIndices();  ?>
+ <div class="col">
+ <div class="mt-4 p-4 border text-center">
+ <img src="../../admin/imagenes/<?php echo \htmlentities($libro['foto'], ENT_QUOTES, 'UTF-8', false); ?>" width="150px" height="150px">
+ <br><br>
+ <p>Titulo: <?php echo \htmlentities($libro["titulo"], ENT_QUOTES, 'UTF-8', false); ?></p>
+ <p>Autor: <?php echo \htmlentities($libro["autor"], ENT_QUOTES, 'UTF-8', false); ?></p>
+ <p>Disponible: <?=$libro['disponible'] ? "Si" : "No"; ?></p>
+ </div>
+ </div>
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+<?php $this->stopSection(); ?>
+<?php if (isset($_shouldextend[1])) { echo $this->runChild("layaouts.plantilla"); } ?>

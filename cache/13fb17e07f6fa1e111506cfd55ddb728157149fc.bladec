@@ -1,0 +1,22 @@
+<?php $_shouldextend[1]=1; ?>
+<?php $this->startSection("header"); ?>
+ <h1>Editoriales</h1>
+<?php $this->stopSection(); ?>
+
+<?php $this->startSection("tabla"); ?>
+ <h1>Modificar Editorial</h1>
+
+ <form method="post">
+ <p>
+ <label for="nombre">Nombre Editorial</label>
+ <input id="nombre" type="text" name="nombre" value="<?= $datos['nombre'] ?>">
+ </p>
+
+ <p>
+ <input type="hidden" name="id_editorial" value="<?= $id_editorial ?>">
+ <input type="submit" value="Modificar">
+ <a href="index.php">Cancelar</a>
+ </p>
+ </form>
+<?php $this->stopSection(); ?>
+<?php if (isset($_shouldextend[1])) { echo $this->runChild("layaouts.tablas"); } ?>

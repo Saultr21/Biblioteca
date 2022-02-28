@@ -1,0 +1,22 @@
+<?php $_shouldextend[1]=1; ?>
+<?php $this->startSection("header"); ?>
+ <h1>Edioriales</h1>
+<?php $this->stopSection(); ?>
+
+<?php $this->startSection("tabla"); ?>
+ <h1>Añadir editorial</h1>
+
+ <form action="" method="post">
+ <p>
+ <label for="nombre">Nombre editorial</label>
+ <input class="form-control" id="nombre" type="text" name="nombre">
+ </p>
+
+
+ <p>
+ <input class="btn btn-primary btn-sm" type="submit" value="Guardar">
+ <a class="btn btn-secondary btn-sm" href="index.php">Cancelar</a>
+ </p>
+ </form>
+<?php $this->stopSection(); ?>
+<?php if (isset($_shouldextend[1])) { echo $this->runChild("layaouts.tablas"); } ?>
